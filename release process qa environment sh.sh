@@ -16,8 +16,8 @@ PERPLE='\033[1;35m'
 BROWN='\033[0;35m'
 CYAN='\033[0;36m'
 path= pwd
-tarfilename=now="$(date +'%d/%m/%Y-%H:%M:%S')":
-if [ -d "backup" ]:then
+tarfilename="$(date +'%d-%m-%Y-%H_%M_%S')"
+if [ ! -d "backup" ];then
 	sudo mkdir backup
 fi
 
@@ -38,7 +38,9 @@ read -p "Enter your selection  : " number
 
 if [ "$number" == "1" ]; then
 	read -p "shell selected ,please confirm (y/n) : " confirm 
-	sudo tar -cvf backup/$tarfilename.tar.gz /var/www/html
+	printf "${RED}backup process running .please wait ...${NC} \n "
+	sudo tar -cf backup/$tarfilename.tar.gz /var/www/html
+	printf "${GREEN}backup process completed ${NC} \n "
 	if [ "$confirm" == "y" ]; then
 		printf "${GREEN}confirmed. update process running ...${NC} \n "
 		if [ -d "DW-alpha-shell" ]; then
@@ -70,7 +72,9 @@ elif [ "$number" == "2" ]; then
 	read -p "mobile shell selected ,please confirm (y/n) :  " confirm 
 	if [ "$confirm" == "y" ]; then
 		cd $path
-		sudo tar -cvf backup/$tarfilename.tar.gz /var/www/html
+		printf "${RED}backup process running .please wait ...${NC} \n "
+		sudo tar -cf backup/$tarfilename.tar.gz /var/www/html
+		printf "${GREEN}backup process completed ${NC} \n "
 		printf "${GREEN}confirmed. update process running ... ${NC}\n"
 		if [ ! -d "mobile" ]; then
 			sudo mkdir mobile 
@@ -114,7 +118,9 @@ elif [ "$number" == "3" ]; then
 	read -p "enter folder location " location
 	if [ "$confirm" == "y" ]; then
 		cd $path
-		sudo tar -cvf backup/$tarfilename.tar.gz /var/www/html
+		printf "${RED}backup process running .please wait ...${NC} \n "
+		sudo tar -cf backup/$tarfilename.tar.gz /var/www/html
+		printf "${GREEN}backup process completed ${NC} \n "
 		if [ -d "Duoworldsite" ]; then
 			cd $path
 			if [ ! -d "tempDuoworld" ]; then
