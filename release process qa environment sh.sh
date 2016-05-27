@@ -61,7 +61,7 @@ if [ "$number" == "1" ]; then
 		#echo DW-alpha-shell/
 		#echo 111
 		cd $path
-		sudo cp -r DW-alpha-shell/* /var/www/htmlpamidu/shell/
+		sudo cp -r DW-alpha-shell/* /var/www/html/shell/
 	elif [ "$confirm" == "n" ]; then
 		printf "${GREEN}selection canceled${NC} \n"
 	else
@@ -103,7 +103,7 @@ elif [ "$number" == "2" ]; then
 		#pwd
 		cd mobile
 		#pwd
-		sudo cp -r DW-alpha-shell/* /var/www/htmlpamidu/mobile_shell
+		sudo cp -r DW-alpha-shell/* /var/www/html/mobile_shell
 	elif [ "$confirm" == "n" ]; then
 		printf "${GREEN}selection canceled${NC}\n"
 	else
@@ -134,7 +134,7 @@ elif [ "$number" == "3" ]; then
 			if [ -d "Duoworldsite$location" ]; then
 				cd $path
 				sudo cp -r tempDuoworld/Duoworldsite/$location Duoworldsite$location
-				sudo cp -r Duoworldsite/* /var/www/htmlpamidu/
+				sudo cp -r Duoworldsite/* /var/www/html/
 				printf "${GREEN}$location updated${NC}\n"
 				cd $path
 				sudo rm -r tempDuoworld
@@ -148,7 +148,7 @@ elif [ "$number" == "3" ]; then
 			cd $path
 			sudo git clone https://$username:$password@github.com/DuoSoftware/Duoworldsite
 			if [ -d "Duoworldsite$location" ]; then
-				sudo cp -r Duoworldsite/* /var/www/htmlpamidu/
+				sudo cp -r Duoworldsite/* /var/www/html/
 			#cd Duoworldsite$location
 			else
 				printf "${RED}Folder not found please check again ${NC}\n"
