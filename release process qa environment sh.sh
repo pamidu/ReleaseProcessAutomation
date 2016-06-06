@@ -14,7 +14,7 @@ YELLOW='\033[1;33m'
 PERPLE='\033[1;35m'
 BROWN='\033[0;35m'
 CYAN='\033[0;36m'
-path= "$PWD"
+path=$(pwd)
 
 if [ ! -d "backup" ]; then
 	sudo mkdir backup
