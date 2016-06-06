@@ -54,7 +54,7 @@ if [ "$number" == "1" ]; then
 		else
 			sudo mkdir shell
 			sudo cp -r /var/www/html/shell/* shell
-			cd $path/shell
+			cd shell
 			sudo git init
 			sudo git add *
 			read -p "please enter commit message : " message
