@@ -1,10 +1,10 @@
 #!/bin/bash
-username="duobuilduser"
-emailaddress="duobuilduser@duosoftware.com"
-password="DuoS12345"
+#username="duobuilduser"
+#emailaddress="duobuilduser@duosoftware.com"
+#password="DuoS12345"
 
-sudo git config --global user.name $username
-sudo git config --global user.email $emailaddress
+#sudo git config --global user.name $username
+#sudo git config --global user.email $emailaddress
 
 RED='\033[0;31m'
 NC='\033[0m'
@@ -50,7 +50,7 @@ if [ "$number" == "1" ]; then
 		sudo rm include/config.php
 		if [ ! -d ".git" ];then
 			sudo git init 
-			sudo git remote add origin https://github.com/pamidu/123.git
+			sudo git remote add origin https://github.com/DuoSoftware/DuoworldProductionReady.git
 		fi
 		sudo git add *
 		
