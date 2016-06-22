@@ -139,6 +139,7 @@ elif [ "$number" == "3" ]; then
 		fi
 		cd tempDuoworld
 		sudo git clone https://$username:$password@github.com/DuoSoftware/Duoworldsite
+		sudo git pull
 		cd $path
 		if [ -d "Duoworldsite$location" ]; then
 				cd $path
