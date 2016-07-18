@@ -35,6 +35,12 @@ git pull
 sudo cp -r * /var/www/html
 cd ..
 
+sudo mkdir /var/www/html/api
+git clone https://github.com/DuoSoftware/duoworldapi
+cp -r duoworldapi/* /var/www/html/api
+
+
+
 #bower install --allow-root
 
 echo "Site Installed successfuly"
