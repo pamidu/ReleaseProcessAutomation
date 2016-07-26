@@ -130,8 +130,9 @@ elif [ "$number" == "3" ]; then
 	elif [ "$location" == "q" ]; then
 		printf "${RED}selection canceled ${NC}\n"
 	else
+		
 		cd $path
-		if [ !-d "backup" ]; then
+		if [ ! -d "backup" ]; then
 			sudo mkdir backup
 		fi
 		if [ ! -d "tempDuoworld" ] ;then
@@ -141,7 +142,7 @@ elif [ "$number" == "3" ]; then
 		sudo git clone https://$username:$password@github.com/DuoSoftware/Duoworldsite
 		sudo git pull
 		cd $path
-		if [ -d "Duoworldsite$location" ]; then
+		if [ -d "tempDuoworld/Duoworldsite$location" ]; then
 				cd $path
 				printf "${RED}backup process running .please wait ...${NC} \n "
 				tarfilename="$(date +'%d-%m-%Y-%H_%M_%S')"
