@@ -27,6 +27,7 @@ printf "${GREEN}#######################################################${NC}\n"
 printf "\t ${BLUE}press 1 to update  shell\n"
 printf "\t press 2 to update mobile shell\n"
 printf "\t press 3 to update other folder\n"
+printf "\t press 4 to update dwbording \n"
 printf "\t press q to exit ${NC} \n"
 printf "${GREEN}#######################################################${NC}\n"
 
@@ -150,7 +151,7 @@ elif [ "$number" == "3" ]; then
 				sudo tar -cf $tarfilename.tar.gz  /var/www/html
 				cd $path
 				printf "${GREEN}backup process completed ${NC} \n "
-				sudo cp -r tempDuoworld/Duoworldsite$location /var/www/html$location
+				sudo cp -r tempDuoworld/Duoworldsite$location/* /var/www/html$location
 				printf "${GREEN}$location updated${NC}\n"
 				cd $path				
 		else
@@ -160,6 +161,34 @@ elif [ "$number" == "3" ]; then
 		sudo rm -r tempDuoworld
 		
 	fi
+elif [ "$number" == "4" ]; then
+	read -p "dwbording selected ,please confirm (y/n) : " confirm 
+	printf "${RED}backup process running .please wait ...${NC} \n "
+	cd backup
+	tarfilename="$(date +'%d-%m-%Y-%H_%M_%S')"
+	sudo tar -cf $tarfilename.tar.gz /var/www/html
+	cd $path
+	printf "${GREEN}backup process completed ${NC} \n "
+	if [ "$confirm" == "y" ]; then
+		printf "${GREEN}confirmed. update process running ...${NC} \n "
+		if [ -d "DW-Shell-Default-Config" ]; then
+			cd $path
+			cd DW-Shell-Default-Config
+			sudo git pull
+			printf "${GREEN}folder found pull request${NC} \n"
+		else
+			printf "${RED}folder not found cloning${NC} \n "
+			cd $path
+			sudo git clone https://$username:$password@github.com/DuoSoftware/DW-Shell-Default-Config		
+		fi
+		cd $path
+		sudo cp -r  DW-Shell-Default-Config/* /var/www/html/dwbording/
+	elif [ "$confirm" == "n" ]; then
+		printf "${GREEN}selection canceled${NC} \n"
+	else
+		printf "${RED}wrong selection try again ${NC}\n"
+	fi
+	####################################################
 elif [ "$number" == "q" ]; then
 	printf "${GREEN}#######################################################${NC}\n"
 	printf "${GREEN}#                                                     #${NC}\n"

@@ -69,10 +69,9 @@ elif [ "$number" == "2" ]; then
 		read -p "please enter directory location  : " folder
 
 		if [ -d "/var/www/html$folder" ]; then
-			echo "true"
 			echo "/var/www/html$folder"
 			read -p "please enter commit message : " message 
-			sudo cp -r /var/www/html$folder/* $path/withgitfile$folder
+			sudo cp -r /var/www/html$folder/* $path/withgitfile$folder/
 			cd $path
 			cd withgitfile
 			sudo find . -type f -name ".git*" -exec rm -f {} \;
