@@ -31,6 +31,12 @@ if [ ! -d "withgitfile" ]; then
 	sudo mkdir withgitfile
 fi
 
+if [ ! -d "DuoworldProductionReady" ]; then
+	sudo git remote add origin https://github.com/DuoSoftware/DuoworldProductionReady.git
+	cp -r DuoworldProductionReady/* production/
+fi
+
+
 while [ "$number" != "q" ]
 do
 read -p "Enter your selection  : " number
