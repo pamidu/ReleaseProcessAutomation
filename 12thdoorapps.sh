@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BuildOutPath="$PWD"
+#BuildOutPath="$PWD"
 username="duobuilduser"
 emailaddress="duobuilduser@duosoftware.com"
 password="DuoS12345"
