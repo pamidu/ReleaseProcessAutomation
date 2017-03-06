@@ -6,7 +6,7 @@ RED='\033[0;31m'
 if [ -z "$1" ];then
 	echo "${RED}please provide main domain. Eg: ./appinstall.sh duoworld.com${NC}\n"
 else
-BuildOutPath="$PWD"
+#BuildOutPath="$PWD"
 username="duobuilduser"
 emailaddress="duobuilduser@duosoftware.com"
 password="DuoS12345"
